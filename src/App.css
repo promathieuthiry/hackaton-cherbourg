@@ -1,1 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+body,
+html {
+  height: 100%;
+}
+
+#cover {
+  background: 
+  /* linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), */ url(./assets/image/cover.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 16px;
+  height: 50%;
+}
+
+#searchForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#formPaper {
+  width: 800px;
+  padding: 30px;
+  border-radius: 50px;
+  /* background: rgba(45, 88, 35, 0.5); */
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+@media all and (max-width: 768px) {
+  #formPaper {
+    width: 300px;
+  }
+}

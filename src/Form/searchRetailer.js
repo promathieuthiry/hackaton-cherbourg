@@ -1,12 +1,26 @@
 import React,  {Component} from 'react'
 import { TextField, FormControl, InputLabel, Select, MenuItem, FormHelperText, Button } from '@material-ui/core';
+import "../App.css"
 
 
 export default class SearchRetailer extends Component {
 
     state = {
         searchText: "",
-        category: ''
+        category: '',
+        filterData: []
+    }
+
+    componentDidMount () {
+        this.getData()
+    }
+
+    async getData () {
+        const data = await fetch('http://julienv8.sg-host.com/api/commerces?page=1')
+        const filterData = await data.json()
+        console.log(filterData, "data")
+        this.setState({filterData})
+   
     }
 
     onSearchTextChanged (searchText) {
@@ -19,14 +33,22 @@ export default class SearchRetailer extends Component {
 
     render () {
     return (
-        <div style={{display: "flex", justifyContent: "center", marginTop: "50px"}}>
-        <div style={{width: 600, padding: 30, bordeRadius: "50px", background: "#ffffff" , borderRadius: 10, boxShadow:  "20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff"}}>
-              <div style={{display: "flex", flexDirection: "row", width: "100%", justifyContent: 'space-between', alignItems: "center", marginBottom: 20}}>
-              <div style={{width:"70%", height:52, padding:4}}>
+        <div id="searchForm" style={{display: "flex", justifyContent: "flex-end",}}>
+        <div id="formPaper">
+        <h1 style={{ margin: 0, textAlign: "center", color: "#555555",}}>Bienvenue sur Cotent'uni</h1>
+     
+
+              <div style={{display: "flex", flexDirection: "row", height: 200, width: "100%", justifyContent: 'space-between', alignItems: "center", marginTop: 20, marginBottom: 20}}>
+
+              <div style={{width: "50%", borderRight: "1px solid red"}}>
+              <h3 style={{ margin: 0, textAlign: "left", marginBottom: 50, color: "#555555", fontSize: 20}}>le site qui recense vos commerçants dans le Cotentin !</h3>
+              </div>
+              <div style={{width:"50%", paddingLeft:20,}}>
+                <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                    <TextField
                         className={"h-search-box"}
                       placeholder={"Rechercher un commerçant"}
-                        style={{height:50, padding:0, width:"100%", backgroundColor:"#FFFFFF"}}
+                        style={{height:50, padding:0, width:"60%", backgroundColor:"#FFFFFF", marginBottom: 20}}
                         InputProps={{
                             style: {height:50, color:'#222222', backgroundColor:"#FAFAFA"},
                        }}
@@ -36,9 +58,10 @@ export default class SearchRetailer extends Component {
                         margin="none"
                        variant="outlined"
                    />
-                </div>
+                
         <FormControl>
         <Select
+          style={{width: "100%"}}
           displayEmpty
           value={this.state.category}
           onChange={(event) => this.onHandleChange(event.target.value)}
@@ -54,13 +77,14 @@ export default class SearchRetailer extends Component {
         <FormHelperText>Sélectionner par catégories</FormHelperText>
 
       </FormControl>
+
+      <Button size="small" variant="contained" style={{zIndex: 2, backgroundColor: '#1079FC', color: "#fff", marginTop: 20, width: 200}}>
+                                        Rechercher
+    </Button>
       </div>
     
-    <div style={{display: "flex", flexDirection: 'row'}}>
-    <div style={{flex: 1}}/>
-      <Button size="small" variant="contained" style={{zIndex: 2, backgroundColor: '#1079FC', color: "#fff", }}>
-                                        Rechercher
-                                    </Button>
+      
+    </div>
         </div>
         </div>
         </div>
