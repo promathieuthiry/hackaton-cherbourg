@@ -1,0 +1,131 @@
+import React,  {Component} from 'react'
+import { TextField, FormControl, InputLabel, Select, MenuItem, FormHelperText, Button } from '@material-ui/core';
+
+
+export default class SearchRetailer extends Component {
+
+    state = {
+        searchText: "",
+        category: ''
+    }
+
+    onSearchTextChanged (searchText) {
+        this.setState({searchText})
+    }
+
+    onHandleChange (category) {
+        this.setState({category})
+    }
+
+    render () {
+    return (
+        <div style={{display: "flex", justifyContent: "center", marginTop: "50px"}}>
+        <div style={{width: 600, padding: 30, bordeRadius: "50px", background: "#ffffff" , borderRadius: 10, boxShadow:  "20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff"}}>
+              <div style={{display: "flex", flexDirection: "row", width: "100%", justifyContent: 'space-between', alignItems: "center", marginBottom: 20}}>
+              <div style={{width:"70%", height:52, padding:4}}>
+                   <TextField
+                        className={"h-search-box"}
+                      placeholder={"Rechercher un commerçant"}
+                        style={{height:50, padding:0, width:"100%", backgroundColor:"#FFFFFF"}}
+                        InputProps={{
+                            style: {height:50, color:'#222222', backgroundColor:"#FAFAFA"},
+                       }}
+
+                        value={this.state.searchText}
+                       onChange={(event)=>{this.onSearchTextChanged(event.target.value)}}
+                        margin="none"
+                       variant="outlined"
+                   />
+                </div>
+        <FormControl>
+        <Select
+          displayEmpty
+          value={this.state.category}
+          onChange={(event) => this.onHandleChange(event.target.value)}
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+        <MenuItem value="" disabled>
+        Catégories
+          </MenuItem>
+          <MenuItem value={10}>Alimentation</MenuItem>
+          <MenuItem value={20}>Loisirs</MenuItem>
+          <MenuItem value={30}>Maison</MenuItem>
+        </Select>
+        <FormHelperText>Sélectionner par catégories</FormHelperText>
+
+      </FormControl>
+      </div>
+    
+    <div style={{display: "flex", flexDirection: 'row'}}>
+    <div style={{flex: 1}}/>
+      <Button size="small" variant="contained" style={{zIndex: 2, backgroundColor: '#1079FC', color: "#fff", }}>
+                                        Rechercher
+                                    </Button>
+        </div>
+        </div>
+        </div>
+    )}
+}
+
+// renderSearchBox(){
+
+//     const active = this.state.searchText.length > 0;
+//     const hasAccessGeolite = Tools.isAuthorizedAccessGeolite();
+
+//     return(
+//         <div style={{height:"100%", width:400, position:"relative", zIndex:50}}>
+
+//             <div style={{position:"absolute", left:0, top:4, width:"100%", borderRadius:4, backgroundColor:"#FFFFFF",
+//             zIndex:50}} className={active ? "elevated-paper" : ""} onClick={(e)=>{e.stopPropagation()}}>
+//                 <div style={{width:"100%", height:52, padding:4}}>
+//                     <TextField
+//                         className={"h-search-box"}
+//                         placeholder={"Rechercher un contact"}
+//                         style={{height:44, padding:0, width:"100%", backgroundColor:"#FFFFFF"}}
+//                         disabled={this.props.disabled}
+//                         InputProps={{
+//                             style: {height:44, color:'#222222', backgroundColor:"#FAFAFA"},
+//                         }}
+
+//                         value={this.state.searchText}
+//                         onChange={(event)=>{this.onSearchTextChanged(event.target.value)}}
+//                         margin="none"
+//                         variant="outlined"
+//                     />
+//                 </div>
+//                 {active &&
+//                     <div style={{width:"100%",maxHeight:300, paddingTop: active ? 4 : 0, overflow:"auto"}}>
+//                         {this.state.searchResults.map((sr)=>{
+//                             return(
+//                                 <div style={{height:44, padding:4, paddingLeft:8, paddingRight:8, display:"flex",
+//                                 flexDirection:"column", justifyContent:"center", alignItems:"flex-start"}} key={"sr_" + sr.contact.id}
+//                                 className={"hoverable-search-result"} onClick={()=>{this.onSearchResultClicked(sr)}}>
+
+//                                     <div style={{width:"100%", display:"flex", flexDirection:"row", justifyContent:"flex-start", alignItems:'center'}}>
+
+//                                         {hasAccessGeolite && sr.contact.isDisplayedOnGeolite &&
+//                                         <img alt={"geolite"} style={{height:14, width:14, marginRight:4}} src={require("./../../../assets/geolite192.png")}/>
+//                                         }
+
+//                                         <p style={{color:"#222222", margin:0, flex:1, textAlign:"left", fontSize:14}}>
+//                                             <strong style={{textTransform:"uppercase"}}>{sr.contact.lastName + " "}</strong>
+//                                             {sr.contact.firstName}
+//                                         </p>
+//                                     </div>
+
+//                                     {sr.contact.situation &&
+//                                         <p style={{margin:0,marginTop:2, textAlign:"left", fontSize:12, color:'#555555', width:"100%"}}>
+//                                             {sr.contact.situation}
+//                                         </p>
+//                                     }
+
+//                                 </div>
+//                             )
+//                         })}
+//                     </div>
+//                 }
+//             </div>
+
+//         </div>
+//     )
+// }
