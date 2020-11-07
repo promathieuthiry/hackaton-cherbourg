@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/hackaton-cherbourg/static/css/main.b289c422.chunk.css",
+    "main.js": "/hackaton-cherbourg/static/js/main.53d0f6e3.chunk.js",
+    "main.js.map": "/hackaton-cherbourg/static/js/main.53d0f6e3.chunk.js.map",
+    "runtime-main.js": "/hackaton-cherbourg/static/js/runtime-main.72cfb0a5.js",
+    "runtime-main.js.map": "/hackaton-cherbourg/static/js/runtime-main.72cfb0a5.js.map",
+    "static/js/2.8797c268.chunk.js": "/hackaton-cherbourg/static/js/2.8797c268.chunk.js",
+    "static/js/2.8797c268.chunk.js.map": "/hackaton-cherbourg/static/js/2.8797c268.chunk.js.map",
+    "static/js/3.f20229de.chunk.js": "/hackaton-cherbourg/static/js/3.f20229de.chunk.js",
+    "static/js/3.f20229de.chunk.js.map": "/hackaton-cherbourg/static/js/3.f20229de.chunk.js.map",
+    "index.html": "/hackaton-cherbourg/index.html",
+    "static/css/main.b289c422.chunk.css.map": "/hackaton-cherbourg/static/css/main.b289c422.chunk.css.map",
+    "static/js/2.8797c268.chunk.js.LICENSE.txt": "/hackaton-cherbourg/static/js/2.8797c268.chunk.js.LICENSE.txt",
+    "static/media/shopping.d68884e5.png": "/hackaton-cherbourg/static/media/shopping.d68884e5.png",
+    "static/media/shopping.e2633bb4.svg": "/hackaton-cherbourg/static/media/shopping.e2633bb4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72cfb0a5.js",
+    "static/js/2.8797c268.chunk.js",
+    "static/css/main.b289c422.chunk.css",
+    "static/js/main.53d0f6e3.chunk.js"
+  ]
+}
