@@ -13,6 +13,8 @@ export default class App extends Component {
     filterData: [],
     searchText: "",
     loadingData: false,
+    categoryAvailable: [],
+    categorySelected: ""
   }
 
   componentDidMount () {
@@ -28,7 +30,10 @@ async getData () {
       "Content-type": "application/json; charset=UTF-8"
     }})
     const rawData = await data.json()
-    this.setState({rawData, filterData: rawData, loadingData: false})
+    const rawCategories = rawData.map(el => el.categorie)
+    const categoryAvailable = [...new Set(rawCategories)]
+    console.log(categoryAvailable)
+    this.setState({rawData, filterData: rawData, loadingData: false, categoryAvailable})
   } catch (error) {
     console.warn(error)
     this.setState({loadingData: false})
@@ -58,8 +63,14 @@ render () {
         Vous aussi, devenez consomm'acteur !</p>
         </div>
     <SearchRetailer 
+      categoryAvailable={this.state.categoryAvailable}
+      categorySelected={this.state.categorySelected}
+      retailer={this.state.filterData}
       searchText={this.state.searchText}
       onSearchTextChanged={(text) => this.onSearchTextChanged(text)}
+      onCategoryChanged={(text) => this.onHandleChangeCategory(text)}
+
+      onHandleChangeCategory
     />
     {this.state.filterData && this.state.filterData.map(retailer => {
       return (
@@ -73,7 +84,11 @@ render () {
     </div>
   )}
 
-
+  onHandleChangeCategory (categorySelected) {
+    let data = this.state.rawData;
+    let filterData = data.filter(el => el.categorie === categorySelected)
+    this.setState({categorySelected, filterData})
+}
 
   onSearchTextChanged(text){
     

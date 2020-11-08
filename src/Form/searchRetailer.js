@@ -5,9 +5,7 @@ import "../App.css"
 
 export default class SearchRetailer extends Component {
 
-    state = {
-        category: '',
-    }
+  
 
     onHandleChange (category) {
         this.setState({category})
@@ -23,7 +21,9 @@ export default class SearchRetailer extends Component {
               <div style={{display: "flex", flexDirection: "row", height: 200, width: "100%", justifyContent: 'space-between', alignItems: "center", marginTop: 20, marginBottom: 20}}>
 
               <div style={{width: "50%", borderRight: "1px solid red"}}>
-              <h3 style={{ margin: 0, textAlign: "left", marginBottom: 50, color: "#555555", fontSize: 20}}>le site qui recense vos commerçants dans le Cotentin !</h3>
+              <h3 style={{ margin: 0, textAlign: "left", marginBottom: 50, color: "#555555", fontSize: 20}}>
+              le site qui recense vos commerçants dans le Cotentin ! ({this.props.retailer.length})
+              </h3>
               </div>
               <div style={{width:"50%", paddingLeft:20,}}>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
@@ -45,16 +45,19 @@ export default class SearchRetailer extends Component {
         <Select
           style={{width: "100%"}}
           displayEmpty
-          value={this.state.category}
-          onChange={(event) => this.onHandleChange(event.target.value)}
+          value={this.props.categorySelected}
+          onChange={(event) => this.props.onCategoryChanged(event.target.value)}
           inputProps={{ 'aria-label': 'Without label' }}
         >
         <MenuItem value="" disabled>
         Catégories
           </MenuItem>
-          <MenuItem value={10}>Alimentation</MenuItem>
-          <MenuItem value={20}>Loisirs</MenuItem>
-          <MenuItem value={30}>Maison</MenuItem>
+          {this.props.categoryAvailable.map((cat, index) => {
+            return (
+              <MenuItem value={cat}>{cat}</MenuItem>
+            )
+          })}
+         
         </Select>
         <FormHelperText>Sélectionner par catégories</FormHelperText>
 
