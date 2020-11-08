@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/hackaton-cherbourg/static/css/main.7aacd4a8.chunk.css",
-    "main.js": "/hackaton-cherbourg/static/js/main.652541f0.chunk.js",
-    "main.js.map": "/hackaton-cherbourg/static/js/main.652541f0.chunk.js.map",
-    "runtime-main.js": "/hackaton-cherbourg/static/js/runtime-main.3eef92cc.js",
-    "runtime-main.js.map": "/hackaton-cherbourg/static/js/runtime-main.3eef92cc.js.map",
-    "static/js/2.8225fe84.chunk.js": "/hackaton-cherbourg/static/js/2.8225fe84.chunk.js",
-    "static/js/2.8225fe84.chunk.js.map": "/hackaton-cherbourg/static/js/2.8225fe84.chunk.js.map",
-    "static/js/3.6afaf88a.chunk.js": "/hackaton-cherbourg/static/js/3.6afaf88a.chunk.js",
-    "static/js/3.6afaf88a.chunk.js.map": "/hackaton-cherbourg/static/js/3.6afaf88a.chunk.js.map",
+    "main.js": "/hackaton-cherbourg/static/js/main.7ae200a4.chunk.js",
+    "main.js.map": "/hackaton-cherbourg/static/js/main.7ae200a4.chunk.js.map",
+    "runtime-main.js": "/hackaton-cherbourg/static/js/runtime-main.9094b24f.js",
+    "runtime-main.js.map": "/hackaton-cherbourg/static/js/runtime-main.9094b24f.js.map",
+    "static/js/2.cb9e8362.chunk.js": "/hackaton-cherbourg/static/js/2.cb9e8362.chunk.js",
+    "static/js/2.cb9e8362.chunk.js.map": "/hackaton-cherbourg/static/js/2.cb9e8362.chunk.js.map",
+    "static/js/3.142073b3.chunk.js": "/hackaton-cherbourg/static/js/3.142073b3.chunk.js",
+    "static/js/3.142073b3.chunk.js.map": "/hackaton-cherbourg/static/js/3.142073b3.chunk.js.map",
     "index.html": "/hackaton-cherbourg/index.html",
     "static/css/main.7aacd4a8.chunk.css.map": "/hackaton-cherbourg/static/css/main.7aacd4a8.chunk.css.map",
-    "static/js/2.8225fe84.chunk.js.LICENSE.txt": "/hackaton-cherbourg/static/js/2.8225fe84.chunk.js.LICENSE.txt",
+    "static/js/2.cb9e8362.chunk.js.LICENSE.txt": "/hackaton-cherbourg/static/js/2.cb9e8362.chunk.js.LICENSE.txt",
     "static/media/App.css": "/hackaton-cherbourg/static/media/cover.e73f1b4f.jpg",
     "static/media/logodef.d80d1b22.png": "/hackaton-cherbourg/static/media/logodef.d80d1b22.png",
     "static/media/shopping.d68884e5.png": "/hackaton-cherbourg/static/media/shopping.d68884e5.png",
     "static/media/shopping.e2633bb4.svg": "/hackaton-cherbourg/static/media/shopping.e2633bb4.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3eef92cc.js",
-    "static/js/2.8225fe84.chunk.js",
+    "static/js/runtime-main.9094b24f.js",
+    "static/js/2.cb9e8362.chunk.js",
     "static/css/main.7aacd4a8.chunk.css",
-    "static/js/main.652541f0.chunk.js"
+    "static/js/main.7ae200a4.chunk.js"
   ]
 }
