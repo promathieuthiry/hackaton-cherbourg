@@ -9,7 +9,8 @@ export default class App extends Component {
 
   state = {
     rawData: [],
-    filterData: []
+    filterData: [],
+    searchText: "",
   }
 
   componentDidMount () {
@@ -19,10 +20,14 @@ export default class App extends Component {
 async getData () {
     const data = await fetch('http://julienv8.sg-host.com/api/commerces?page=1')
     const rawData = await data.json()
-    console.log(rawData, "rawData")
     this.setState({rawData, filterData: rawData})
 
 }
+
+onHandleTextChanged (searchText) {
+  this.setState({searchText})
+}
+
 
 render () {
   return (
@@ -39,15 +44,43 @@ render () {
         Aujourd'hui et plus que jamais, vos achats témoignent de votre engagement.
         Vous aussi, devenez consomm'acteur !</p>
         </div>
-    <SearchRetailer />
-    {this.state.filterData.map(retailer => {
+    <SearchRetailer 
+      searchText={this.state.searchText}
+      onSearchTextChanged={(text) => this.onSearchTextChanged(text)}
+    />
+    {this.state.filterData && this.state.filterData.map(retailer => {
       return (
         <CardRetailers 
           key={retailer.id}
+          retailer={retailer}
         />
       )
     })}
     </div>
   )}
+
+
+
+  onSearchTextChanged(text){
+    
+    let data = this.state.rawData;
+    let searchResults = [];
+    for(let retailer of data){
+            let hash = "";
+            if(retailer.Name){hash = hash + " " + retailer.Name.toUpperCase()}
+
+            if(hash.indexOf(text.toUpperCase()) !== -1){
+                searchResults.push({
+                  ...retailer
+                })
+            }
+        
+    }
+
+    this.setState({
+        searchText:text,
+        filterData:searchResults,
+    })
+}
 }
 

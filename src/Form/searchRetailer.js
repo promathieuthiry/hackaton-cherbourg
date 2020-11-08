@@ -6,25 +6,7 @@ import "../App.css"
 export default class SearchRetailer extends Component {
 
     state = {
-        searchText: "",
         category: '',
-        filterData: []
-    }
-
-    componentDidMount () {
-        this.getData()
-    }
-
-    async getData () {
-        const data = await fetch('http://julienv8.sg-host.com/api/commerces?page=1')
-        const filterData = await data.json()
-        console.log(filterData, "data")
-        this.setState({filterData})
-   
-    }
-
-    onSearchTextChanged (searchText) {
-        this.setState({searchText})
     }
 
     onHandleChange (category) {
@@ -53,8 +35,8 @@ export default class SearchRetailer extends Component {
                             style: {height:50, color:'#222222', backgroundColor:"#FAFAFA"},
                        }}
 
-                        value={this.state.searchText}
-                       onChange={(event)=>{this.onSearchTextChanged(event.target.value)}}
+                       value={this.props.searchText}
+                       onChange={(event)=>{this.props.onSearchTextChanged(event.target.value)}}
                         margin="none"
                        variant="outlined"
                    />
