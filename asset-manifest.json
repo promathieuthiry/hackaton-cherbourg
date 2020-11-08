@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/hackaton-cherbourg/static/css/main.7aacd4a8.chunk.css",
-    "main.js": "/hackaton-cherbourg/static/js/main.4df73d28.chunk.js",
-    "main.js.map": "/hackaton-cherbourg/static/js/main.4df73d28.chunk.js.map",
+    "main.js": "/hackaton-cherbourg/static/js/main.bb1a2d25.chunk.js",
+    "main.js.map": "/hackaton-cherbourg/static/js/main.bb1a2d25.chunk.js.map",
     "runtime-main.js": "/hackaton-cherbourg/static/js/runtime-main.3eef92cc.js",
     "runtime-main.js.map": "/hackaton-cherbourg/static/js/runtime-main.3eef92cc.js.map",
     "static/js/2.8225fe84.chunk.js": "/hackaton-cherbourg/static/js/2.8225fe84.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.3eef92cc.js",
     "static/js/2.8225fe84.chunk.js",
     "static/css/main.7aacd4a8.chunk.css",
-    "static/js/main.4df73d28.chunk.js"
+    "static/js/main.bb1a2d25.chunk.js"
   ]
 }
