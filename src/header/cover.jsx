@@ -1,6 +1,5 @@
 import React from 'react'
 import ShoppingCover from "../assets/image/shopping.png"
-import SvgShoppingCard from "./svgShoppingCard"
 
 export default function Cover() {
     return (

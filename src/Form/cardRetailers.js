@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Storefront, Call, Navigation } from '@material-ui/icons';
+import { Storefront, Call, Navigation, Facebook } from '@material-ui/icons';
+import Helper from "../helpers/helper"
 
 
 export default class CardRetailers extends Component {
@@ -7,20 +8,22 @@ export default class CardRetailers extends Component {
     
     render() {
         const { retailer } = this.props
-        console.log(retailer, "retailer")
+        console.log(retailer)
         return (
             <div style={{display: "flex", justifyContent: "center", marginTop: "50px"}}>
             <div style={{width: 600, paddingLeft: 30, paddingRight: 30, paddingTop: 30, paddingBottom: 10, bordeRadius: "50px", background: "#ffffff" , borderRadius: 10, boxShadow:  "20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff", display: "flex", flexDirection: "column"}}>
 
             <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-            <div style={{width: 50, height: 50, backgroundColor: 'blue', borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <div style={{width: 50, height: 50, backgroundColor: Helper.colorCategory(retailer.categorie), borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}>
                  <Storefront style={{color: "#FFFFFF"}}/>
                  </div>
             
             <div style={{display: 'flex', flexDirection: "column", paddingLeft: 10, width: "100%"}}>
             <p style={{margin: 0, fontSize: 18, fontWeight: "bold", color: "#443977", paddingRight: 10}}>{retailer.Name}</p>
-            <p style={{margin: 0, fontSize: 12, fontWeight: "normal", color: "#222222", paddingRight: 10}}>{retailer.categorie}</p>
-            <a href={retailer.website} target={"_blank"} rel="noreferrer"><p style={{margin: 0, fontSize: 12, fontWeight: "normal", color: "#222222", paddingRight: 10}}>Consulter site web</p></a>
+            <p style={{margin: 0, fontSize: 12, fontWeight: "italic", color: "#222222", paddingRight: 10}}>{retailer.categorie}</p>
+            {retailer.website.length > 0 &&
+            <a href={this.renderWebsite(retailer.website)} style={{textDecoration: "none"}} target={"_blank"} rel="noreferrer"><p style={{margin: 0, fontSize: 12, fontWeight: "bold", color: "##1079FC", paddingRight: 10}}>Consulter site web</p></a>
+            }
 
             </div>
             </div>
@@ -48,19 +51,31 @@ export default class CardRetailers extends Component {
             <div style={{width: 30, height: 30, backgroundColor: '#1A73E8', borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}>
                  <Navigation style={{color: "#FFFFFF", fontSize: "18px"}}/>
                  </div>
-                <a href={`https://www.google.com/maps/dir/?api=1&origin=${retailer.adress}`} target={"_blank"}><p style={{margin: 0, fontSize: 12, paddingLeft: 5, fontWeight: "normal", color: "#555555"}}>{retailer.adress}</p></a>
+                <a style={{textDecoration: 'none'}} href={`https://www.google.com/maps/dir/?api=1&origin=${retailer.adress}`} target={"_blank"}><p style={{margin: 0, fontSize: 12, paddingLeft: 5, fontWeight: "bold", color: "#555555"}}>{retailer.adress}</p></a>
                 </div>
-
-
+                
+                
+                <a href={`tel:${retailer.phone}`} style={{display: "flex", justifyContent: "center", alignItems: "center", textDecoration: "none"}}>
                 <div style={{width: 30, height: 30, backgroundColor: 'green', borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}>
                  <Call style={{color: "#FFFFFF", fontSize: "18px"}}/>
                  </div>
-                <p style={{margin: 0, fontSize: 12, paddingLeft: 5, fontWeight: "normal", color: "#555555"}}>+33 62 70 90 43 11</p>
+                <p style={{margin: 0, fontSize: 12, paddingLeft: 5, fontWeight: "normal", color: "#555555"}}>{retailer.phone}</p>
+                </a>
             </div>
             </div>
             </div>
 
         )
     }
+
+    renderWebsite (website) {
+        if (website.startsWith("www")) {
+            const filterWebsite = website.substring(3)
+            return `https://${filterWebsite}`
+        }
+        if (website.length > 0) {
+            return website
+        }
+    } 
 }
 
