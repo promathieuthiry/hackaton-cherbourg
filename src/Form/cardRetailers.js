@@ -9,6 +9,7 @@ export default class CardRetailers extends Component {
     render() {
         const { retailer } = this.props
         console.log(retailer)
+        // const services = this.renderServices()
         return (
             <div style={{display: "flex", justifyContent: "center", marginTop: "50px"}}>
             <div style={{width: 600, paddingLeft: 30, paddingRight: 30, paddingTop: 30, paddingBottom: 10, bordeRadius: "50px", background: "#ffffff" , borderRadius: 10, boxShadow:  "20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff", display: "flex", flexDirection: "column"}}>
@@ -26,6 +27,12 @@ export default class CardRetailers extends Component {
             }
 
             </div>
+
+            {retailer.picture &&
+            <a href={retailer.picture} target={"_blank"}>
+            <img src={retailer.picture} style={{width: 60, height: 60, borderRadius: "50%", objectFit: "cover"}}  />
+            </a>
+            }
             </div>
             <p style={{margin: 0, fontSize: 12, fontWeight: "normal", color: "#222222", paddingRight: 10, marginTop: 10}}>{retailer.description}</p>
 
@@ -44,6 +51,7 @@ export default class CardRetailers extends Component {
             </div>
             
             </div> */}
+        
                  <div style={{height: "1px", width: "100%", backgroundColor: "#d3d3d3", marginTop: 10}} />
             <div style={{display: "flex", flexDirection: "row", alignItems: "center", marginTop: 10}}>
             <div style={{flex: 1, display: "flex", flexDirection: "row", alignItems: "center"}}>
@@ -76,6 +84,11 @@ export default class CardRetailers extends Component {
         if (website.length > 0) {
             return website
         }
+    } 
+
+    renderServices (retailer) {
+       console.log(retailer.services)
+
     } 
 }
 

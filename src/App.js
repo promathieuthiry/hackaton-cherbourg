@@ -91,7 +91,6 @@ render () {
     "The purpose is to inform you, guide you and help our independent companies. let's facilitate your exchanges ! Today and more than ever, your purchases bear witness to your commitment. You too, become a consum'actor!" 
     : "Le but est de vous informer, vous guider et aider nos entreprises indépendantes. Facilitons vos échanges Aujourd'hui et plus que jamais, vos achats témoignent de votre engagement. Vous aussi, devenez consomm'acteur !"
     }
-
         </p>
         </div>
     <SearchRetailer 
