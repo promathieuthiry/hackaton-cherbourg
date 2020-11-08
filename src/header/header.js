@@ -17,7 +17,9 @@ export default function header() {
           <div style={{flex: 1}}>
           <img src={Logo} alt={''} width={70} height={"auto"} />
           </div>
-          <p style={{margin: 0, fontSize: 14, fontWeight: "bold", color: "#443977", paddingRight: 10}}>A propos</p>
+          <a style={{textDecoration: "none"}} href={"https://github.com/promathieuthiry/hackaton-cherbourg/blob/main/README.md"} target={"_blank"}  without rel="noreferrer">
+          <p  style={{ margin: 0, fontSize: 14, fontWeight: "bold", color: "#443977", paddingRight: 10}}>A propos</p>
+          </a>
           <p style={{margin: 0, fontSize: 14, fontWeight: "bold", color: "#443977", padding: 5, border: "2px solid #443977", borderRadius: "10px"}}>Connexion</p>
         </Toolbar>
       </AppBar>

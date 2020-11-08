@@ -48,7 +48,7 @@ export default class CardRetailers extends Component {
             <div style={{width: 30, height: 30, backgroundColor: '#1A73E8', borderRadius: "50%", display: "flex", justifyContent: "center", alignItems: "center"}}>
                  <Navigation style={{color: "#FFFFFF", fontSize: "18px"}}/>
                  </div>
-                <p style={{margin: 0, fontSize: 12, paddingLeft: 5, fontWeight: "normal", color: "#555555"}}>{retailer.adress}</p>
+                <a href={`https://www.google.com/maps/dir/?api=1&origin=${retailer.adress}`} target={"_blank"}><p style={{margin: 0, fontSize: 12, paddingLeft: 5, fontWeight: "normal", color: "#555555"}}>{retailer.adress}</p></a>
                 </div>
 
 

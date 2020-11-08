@@ -4,6 +4,7 @@ import Header from "./header/header"
 import Cover from "./header/cover"
 import SearchRetailer from "./Form/searchRetailer"
 import CardRetailers from "./Form/cardRetailers"
+import Footer from "./header/footer"
 
 export default class App extends Component {
 
@@ -11,6 +12,7 @@ export default class App extends Component {
     rawData: [],
     filterData: [],
     searchText: "",
+    loadingData: false,
   }
 
   componentDidMount () {
@@ -18,13 +20,20 @@ export default class App extends Component {
 }
 
 async getData () {
-    const data = await fetch('https://julienv8.sg-host.com/api/commerces?page=1', {method: "GET",
+  try {
+    this.setState({loadingData: true})
+    const data = await fetch('https://julienv8.sg-host.com/api/commerces', {method: "GET",
     headers: {
       "access-control-allow-origin" : "*",
       "Content-type": "application/json; charset=UTF-8"
     }})
     const rawData = await data.json()
-    this.setState({rawData, filterData: rawData})
+    this.setState({rawData, filterData: rawData, loadingData: false})
+  } catch (error) {
+    console.warn(error)
+    this.setState({loadingData: false})
+  }
+  
 
 }
 
@@ -60,6 +69,7 @@ render () {
         />
       )
     })}
+    {!this.state.loadingData && <Footer />}
     </div>
   )}
 
