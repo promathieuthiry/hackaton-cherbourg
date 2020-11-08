@@ -18,7 +18,7 @@ export default class App extends Component {
 }
 
 async getData () {
-    const data = await fetch('http://julienv8.sg-host.com/api/commerces?page=1')
+    const data = await fetch('https://julienv8.sg-host.com/api/commerces?page=1')
     const rawData = await data.json()
     this.setState({rawData, filterData: rawData})
 
